@@ -26,7 +26,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
-                    'logout' => ['ajax-validation'],
+                    'ajax-validation' => ['POST'],
                 ],
             ],
         ];
