@@ -7,7 +7,7 @@
 3) создаем БД, например short_link и указываем ее в config/db.php
 4) Запускаем миграции  yii migrate up
 5) В файле config/params.php устанавливаем домен сайта - 'shortLinkPrefix' => 'http://short-link.front/',
-6) Запустить на версервере Apache2
+6) Запустить на вебсервере Apache2, ну или Nginx, чтобы чистые ссылки работали как в yii документации указано
 
 ## Результат
 
