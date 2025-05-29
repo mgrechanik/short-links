@@ -7,8 +7,8 @@ namespace app\service;
  */
 class UrlCheckService
 {
-
-    function isValidUrlWithIDN($url) {
+    public function isValidUrlWithIDN($url)
+    {
         $parsed = parse_url($url);
 
         // Проверим наличие хоста
@@ -25,7 +25,7 @@ class UrlCheckService
         // Собираем URL заново с ASCII-доменом
         $scheme = isset($parsed['scheme']) ? $parsed['scheme'] : 'http';
         $user = isset($parsed['user']) ? $parsed['user'] : '';
-        $pass = isset($parsed['pass']) ? ':' . $parsed['pass']  : '';
+        $pass = isset($parsed['pass']) ? ':' . $parsed['pass'] : '';
         $auth = $user || $pass ? "$user$pass@" : '';
         $port = isset($parsed['port']) ? ':' . $parsed['port'] : '';
         $path = isset($parsed['path']) ? $parsed['path'] : '';
@@ -38,7 +38,8 @@ class UrlCheckService
         return filter_var($reconstructedUrl, FILTER_VALIDATE_URL) !== false;
     }
 
-    public function isAccessible($url) {
+    public function isAccessible($url)
+    {
         // Преобразуем кириллический домен в Punycode
         $parsed = parse_url($url);
 

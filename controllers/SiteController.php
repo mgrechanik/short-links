@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace app\controllers;
@@ -63,10 +64,10 @@ class SiteController extends Controller
             if ($service->saveLink($model)) {
                 $res['status'] = 'ok';
                 $res['link'] = 'Созданная короткая ссылка: ' . Html::a(Html::encode($model->getShortUrl()), $model->getShortUrl(), ['target' => '_blank']);
-                $res['qr'] = 'Qr код: <img src="'.(new  \chillerlan\QRCode\QRCode)->render($model->getShortUrl()).'" alt="QR Code" width="300" />';
+                $res['qr'] = 'Qr код: <img src="'.(new \chillerlan\QRCode\QRCode())->render($model->getShortUrl()).'" alt="QR Code" width="300" />';
             } else {
                 $error = 'Не получилось сохранить ссылку, ошибки -  ' . implode(', ', $model->getErrorSummary(true));
-                Yii::error( $error );
+                Yii::error($error);
 
             }
             return $res;
@@ -77,7 +78,8 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionAjaxValidation() {
+    public function actionAjaxValidation()
+    {
         $model = new ShortLink(['scenario' => ShortLink::SCENARIO_CREATE]);
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
@@ -102,9 +104,9 @@ class SiteController extends Controller
                 $visit->setIpFromString(Yii::$app->request->userIP);
                 $visit->link('slink', $model);
                 $transaction->commit();
-            } catch(\Throwable $e) {
+            } catch (\Throwable $e) {
                 $transaction->rollBack();
-                Yii::error( 'Не удалось выполнить транзакцию по переходе по ссылке' );
+                Yii::error('Не удалось выполнить транзакцию по переходе по ссылке');
                 throw $e;
             }
             return $this->redirect($model->long_url);

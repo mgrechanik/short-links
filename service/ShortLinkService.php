@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace app\service;
@@ -17,7 +18,8 @@ class ShortLinkService
         $this->length = $length;
     }
 
-    public function saveLink(ShortLink $link) {
+    public function saveLink(ShortLink $link)
+    {
         $link->scenario = ShortLink::SCENARIO_DEFAULT;
         $link->short_url = $this->generateShortLinkAlias();
         return $link->save();

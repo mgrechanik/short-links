@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace app\models;
@@ -22,8 +23,7 @@ use app\service\UrlCheckService;
  */
 class ShortLink extends \yii\db\ActiveRecord
 {
-
-    const SCENARIO_CREATE = 'create';
+    public const SCENARIO_CREATE = 'create';
 
     /**
      * {@inheritdoc}
@@ -64,7 +64,8 @@ class ShortLink extends \yii\db\ActiveRecord
         ];
     }
 
-    public function checkLink($attribute, $params, $validator){
+    public function checkLink($attribute, $params, $validator)
+    {
         $url = $this->$attribute;
         $service = new UrlCheckService();
         if (!$service->isValidUrlWithIDN($url)) {
@@ -76,9 +77,10 @@ class ShortLink extends \yii\db\ActiveRecord
         }
     }
 
-    public function checkLoop($attribute, $params, $validator){
+    public function checkLoop($attribute, $params, $validator)
+    {
         $url = $this->$attribute;
-        if (str_starts_with($url , Yii::$app->params['shortLinkPrefix'])) {
+        if (str_starts_with($url, Yii::$app->params['shortLinkPrefix'])) {
             $this->addError($attribute, 'Не разрешено создавать ссылку на короткую ссылку');
         }
     }
