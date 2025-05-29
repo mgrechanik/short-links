@@ -14,7 +14,7 @@
 Вставляем ссылки на пример:
   - https://www.yiiframework.com/doc/guide/2.0/en/db-active-record
   - https://поддерживаю.рф/
-  - https://phpforum.su/index.php?s=898f9b75eea64723de2c5097fc4f6969&act=Search&CODE=getactive
+  - https://phpforum.su/index.php?act=Search&CODE=getactive
   
 ### Получаем короткую ссылку вида:
 
