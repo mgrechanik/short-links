@@ -23,7 +23,7 @@ class UrlCheckService
         }
 
         // Собираем URL заново с ASCII-доменом
-        $scheme = isset($parsed['scheme']) ? $parsed['scheme'] : 'http';
+        $scheme = isset($parsed['scheme']) ? $parsed['scheme'] : 'wrong';
         $user = isset($parsed['user']) ? $parsed['user'] : '';
         $pass = isset($parsed['pass']) ? ':' . $parsed['pass'] : '';
         $auth = $user || $pass ? "$user$pass@" : '';
@@ -32,8 +32,11 @@ class UrlCheckService
         $query = isset($parsed['query']) ? '?' . $parsed['query'] : '';
         $fragment = isset($parsed['fragment']) ? '#' . $parsed['fragment'] : '';
 
-        $reconstructedUrl = "$scheme://$auth$asciiHost$port$path$query$fragment";
+        if (!in_array($scheme, ['http', 'https'])) {
+            return false;
+        }
 
+        $reconstructedUrl = "$scheme://$auth$asciiHost$port$path$query$fragment";
         // Проверяем валидность преобразованного URL
         return filter_var($reconstructedUrl, FILTER_VALIDATE_URL) !== false;
     }
