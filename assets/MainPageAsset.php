@@ -1,8 +1,10 @@
 <?php
 /**
- * @link https://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * This file is part of the mgrechanik/short-links project
+ *
+ * @copyright Copyright (c) Mikhail Grechanik <mike.grechanik@gmail.com>
+ * @license https://github.com/mgrechanik/short-links/blob/main/LICENSE.md
+ * @link https://github.com/mgrechanik/short-links
  */
 
 namespace app\assets;

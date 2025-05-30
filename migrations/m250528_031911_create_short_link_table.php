@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * This file is part of the mgrechanik/short-links project
+ *
+ * @copyright Copyright (c) Mikhail Grechanik <mike.grechanik@gmail.com>
+ * @license https://github.com/mgrechanik/short-links/blob/main/LICENSE.md
+ * @link https://github.com/mgrechanik/short-links
+ */
 use yii\db\Migration;
 
 /**
@@ -19,7 +25,7 @@ class m250528_031911_create_short_link_table extends Migration
             'view_count' => $this->integer()->notNull()->defaultValue(0)->comment('Количество просмотров'),
             'created_at' => $this->integer()->comment('Добавлен'),
             'updated_at' => $this->integer()->comment('Изменен'),
-        ]);
+        ], 'CHARACTER SET utf8 COLLATE utf8_bin ENGINE=InnoDB');
     }
 
     /**

@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * This file is part of the mgrechanik/short-links project
+ *
+ * @copyright Copyright (c) Mikhail Grechanik <mike.grechanik@gmail.com>
+ * @license https://github.com/mgrechanik/short-links/blob/main/LICENSE.md
+ * @link https://github.com/mgrechanik/short-links
+ */
 use yii\db\Migration;
 
 /**
