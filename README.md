@@ -1,5 +1,7 @@
 # Функционал коротких ссылок на Yii2 проекте
 
+[Текст задания](https://raw.githubusercontent.com/mgrechanik/short-links/refs/heads/main/short_links_test_task.png)
+
 ## Установка
 
 1) Клонируем репозиторий
